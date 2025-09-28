@@ -1,0 +1,72 @@
+---
+title: "delete soon"
+output: html_document
+date: "2025-09-28"
+editor_options: 
+  chunk_output_type: console
+---
+```{r message=FALSE, warning=FALSE}
+library(data.table)
+library(tidyverse)
+library(ggplot2)
+
+```
+
+```{r}
+10+2
+10-2
+10*2
+10/2
+10^2
+10%%2
+
+```
+
+$a+b =c$ 
+
+$\text{a}+b$
+
+a$a$
+
+a$$a$$a
+
+## ADD
+
+a+b=c
+```{r}
+10+2
+```
+
+## MULTIPLY 
+
+a*b=c
+```{r}
+10*2
+```
+
+## SUBTRACT 
+
+a-b=c
+```{r}
+10-2
+```
+
+```{r}
+df <- fread ("https://colauttilab.github.io/RCrashCourse/FallopiaData.csv")
+head(df)
+glimpse(df)
+df$Scenario <- as.factor(df$Scenario)
+
+ggplot(aes(x=Total), data=df) + geom_histogram()
+
+ggplot(aes(x=Total), data=df) + geom_density()
+
+ggplot(aes(x=Scenario), data=df) + geom_bar()
+
+ggplot(aes(x=Silene, y=Total), data=df) + geom_point()
+
+```
+
+
+
+
