@@ -5,6 +5,8 @@ date: "2025-09-28"
 editor_options: 
   chunk_output_type: console
 ---
+
+#### First, of course, you do the three basic libraries
 ```{r message=FALSE, warning=FALSE}
 library(data.table)
 library(tidyverse)
@@ -12,23 +14,14 @@ library(ggplot2)
 
 ```
 
-```{r}
-10+2
-10-2
-10*2
-10/2
-10^2
-10%%2
-
-```
-
+# DOLLAR SIGN NOTATION 
+Then, we learned that by sandwiching text in between dollar signs, you are able to create fancy, italicized letters. 
+#### $a+b = c$ makes the line below: 
 $a+b =c$ 
 
 $\text{a}+b$
 
-a$a$
-
-a$$a$$a
+#Here, you do some basic commands for arithmetic
 
 ## ADD
 
@@ -51,11 +44,20 @@ a-b=c
 10-2
 ```
 
+
+# PLOTTING 
+### In order to show some basic graphs (histogram, density plot, bar graph, and a scatter plot) you do some setup and then use essentially the same line with slight changes. 
 ```{r}
 df <- fread ("https://colauttilab.github.io/RCrashCourse/FallopiaData.csv")
 head(df)
 glimpse(df)
 df$Scenario <- as.factor(df$Scenario)
+```
+
+#### So since the setup commands are done, let's now do the commands to plot them on different graphs: 
+
+```{r}
+
 
 ggplot(aes(x=Total), data=df) + geom_histogram()
 
@@ -68,5 +70,18 @@ ggplot(aes(x=Silene, y=Total), data=df) + geom_point()
 ```
 
 
+#### The last two types of graphs are both dotplots, but they're slightly different. 
 
+The first way is using dotplots for individual variables 
+```{r}
+ggplot(aes(x=Total), data=df) +
+  geom_dotplot(binwidth=2)
+```
+
+The second way is to use dotplots for continuous by categorical data 
+```{r}
+ggplot(aes(x=Nutrients, y=Total), data=df) +
+  geom_dotplot(binaxis="y", binwidth=2)
+
+```
 
